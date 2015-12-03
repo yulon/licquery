@@ -11,23 +11,23 @@ func main(){
 	}
 
 	if query("他人修改源码后，是否可以闭源？") {
-		if query("新增代码是否采用同样许可证？") {
-			output("GPL", gpl)
-		}else{
-			if query("是否需要对源码的修改之处提供说明文档？") {
-				output("Mozilla", mozilla)
-			}else{
-				output("LGPL", lgpl)
-			}
-		}
-	}else{
 		if query("每一个修改过的文件，是否都必须放置版权说明？") {
 			output("Apache", apache)
-		}else{
+		} else {
 			if query("衍生软件的广告，是否可以用你的名字促销？") {
 				output("MIT", mit)
-			}else{
+			} else {
 				output("BSD", bsd)
+			}
+		}
+	} else {
+		if query("新增代码是否采用同样许可证？") {
+			output("GPL", gpl)
+		} else {
+			if query("是否需要对源码的修改之处提供说明文档？") {
+				output("Mozilla", mozilla)
+			} else {
+				output("LGPL", lgpl)
 			}
 		}
 	}
